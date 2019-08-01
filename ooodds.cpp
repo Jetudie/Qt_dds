@@ -35,7 +35,7 @@ oooDDS::oooDDS(int domain, DeviceData *Data, bool pub_sub, bool choice):
     std::cout << "DDS Start in Relay!!!!" << std::endl;
     this->count = 20;
     this->set_always(false);
-    this->set_delay(1000);
+    this->set_delay(100);
 }
 
 void oooDDS::dds_write()
@@ -84,8 +84,8 @@ void oooDDS::dds_write()
             this->dds_relaysample->padding1(temp.padding1);
             this->dds_relaysample->padding2(temp.padding2);
             this->dds_relaywriter->write(*this->dds_relaysample);
-            emit response_pub_sub("Relay is Publishing");
-            if (temp.status == 1)
+//            emit response_pub_sub("Relay is Publishing");
+            if (Data->status == "On")
                 emit response_pub_sub("On");
             else
                 emit response_pub_sub("Off");
