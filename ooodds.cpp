@@ -35,7 +35,7 @@ oooDDS::oooDDS(int domain, DeviceData *Data, bool pub_sub, bool choice):
     std::cout << "DDS Start in Meter!!!!" << std::endl;
     this->count = 20;
     this->set_always(false);
-    this->set_delay(1000);
+    this->set_delay(100);
 }
 
 void oooDDS::dds_write()
@@ -169,7 +169,7 @@ void oooDDS::dds_read_relay()
                 Decryption_CBC((BYTE*)&data.id, 16, key_dec.henon_float);
 
                 data_1.id = data.id;
-                data_1.status = (data.status ==1)?"on":"off";
+                data_1.status = (data.status ==1)?"On":"Off";
 
                 std::cout << "sub_relay "<<std::endl;
                 std::cout << "ID is "<< data_1.id <<std::endl;
