@@ -169,7 +169,7 @@ void oooDDS::dds_read_relay()
                 Decryption_CBC((BYTE*)&data.id, 16, key_dec.henon_float);
 
                 data_1.id = data.id;
-                data_1.status = (data.status ==1)?"on":"off";
+                data_1.status = (data.status == 1) ? "On":"Off";
 
                 std::cout << "sub_relay "<<std::endl;
                 std::cout << "ID is "<< data_1.id <<std::endl;
